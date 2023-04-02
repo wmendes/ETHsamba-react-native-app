@@ -1,0 +1,31 @@
+{
+    "name": "samba-app",
+    "version": "1.0.0",
+    "description": "Custom Celo Composer project.",
+    "private": true,
+    "author": "Celo",
+    "license": "MIT",
+    "scripts": {
+        "react-native-app:start": "yarn workspace @samba-app/react-native-app start",
+        "react-native-app:android": "yarn workspace @samba-app/react-native-app android",
+        "react-native-app:ios": "yarn workspace @samba-app/react-native-app ios",
+        "react-native-app:web": "yarn workspace @samba-app/react-native-app web",
+        "react-native-app:eject": "yarn workspace @samba-app/react-native-app eject",
+        "react-native-app:test": "yarn workspace @samba-app/react-native-app test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/celo-org/celo-composer.git"
+    },
+    "bugs": {
+        "url": "https://github.com/celo-org/celo-composer/issues"
+    },
+    "homepage": "https://github.com/celo-org/celo-composer/blob/main/README.md",
+    "workspaces": [
+        "packages/*"
+    ],
+    "keywords": [
+        "celo-composer",
+        "celo"
+    ]
+}
