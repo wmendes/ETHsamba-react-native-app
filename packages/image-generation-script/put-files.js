@@ -79,15 +79,23 @@ const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
 const kit = newKitFromWeb3(web3)
 // console.log(dataNft)
 
-await kit.connection.addAccount('0x914783966d5ff7fb7a5d07b9bd3a1f00bfb540ce42dc9decbdf4c8f619f2196a');
-let balance = await kit.connection.getBalance('0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a');
-const contract = new kit.web3.eth.Contract(dataNft.abi, "0x7B1a503BCd4Dc6cb874Bf3b3a83cCd16C3607e64")
+await kit.connection.addAccount('0x31877bd977f737b057ca4677d3e6ecc15af4039212ff3d662fe5bcf8e8a5b815');
+let balance = await kit.connection.getBalance('0xdc98E27D9001aD4D3762C9aC2fB99F936829a127');
+const contract = new kit.web3.eth.Contract(dataNft.abi, "0x650a0C45d511fB90cAA5cD31D1FC053E4db81b17")
 
-// let response = contract.methods.mint('0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a', ipfsImageFile).call({from: '0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a'})
+// let response = await contract.methods.mint('0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a', ipfsImageFile).send({from: '0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a'})
 // response.then(e => console.log(e));
 
-let response = await contract.methods.nextTokenId().call();
-console.log(response);
+// let response = await contract.methods.nextTokenId().call();
+
+
+const txObject = await contract.methods.mint('0x650a0C45d511fB90cAA5cD31D1FC053E4db81b17', ipfsImageFile);
+console.log(txObject)
+const tx = await kit.sendTransactionObject(txObject, { from: '0xdc98E27D9001aD4D3762C9aC2fB99F936829a127' });
+console.log(`Transaction hash: ${tx.transactionHash}`);
+
+
+// console.log(response);
 
 
 }
