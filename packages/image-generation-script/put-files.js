@@ -83,8 +83,10 @@ await kit.connection.addAccount('0x914783966d5ff7fb7a5d07b9bd3a1f00bfb540ce42dc9
 let balance = await kit.connection.getBalance('0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a');
 const contract = new kit.web3.eth.Contract(dataNft.abi, "0x7B1a503BCd4Dc6cb874Bf3b3a83cCd16C3607e64")
 
-let response = await contract.methods.mint('0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a', ipfsImageFile).call();
-let response2 = await contract.methods.nextTokenId().call();
+// let response = contract.methods.mint('0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a', ipfsImageFile).call({from: '0x149E945188B7229Ed0C0df7F8125Fff45b6B0c9a'})
+// response.then(e => console.log(e));
+
+let response = await contract.methods.nextTokenId().call();
 console.log(response);
 
 
